@@ -1,0 +1,23 @@
+{
+  "version": "2026.09",
+  "basis": "제품 세대·등급 기준의 대략적 구분(2026-09 작성). 오버워치 실측 자료가 아니며 예상 FPS 계산에 쓰지 않는다.",
+  "tiers": {
+    "high": [
+      "RTX 5090", "RTX 5080", "RTX 5070 Ti", "RTX 5070",
+      "RTX 4090", "RTX 4080", "RTX 4070 Ti", "RTX 4070 SUPER", "RTX 4070",
+      "RTX 3090", "RTX 3080", "RTX 3070",
+      "RX 9070", "RX 7900", "RX 7800", "RX 7700", "RX 6950", "RX 6900", "RX 6800"
+    ],
+    "mid": [
+      "RTX 5060", "RTX 4060", "RTX 3060", "RTX 2080", "RTX 2070", "RTX 2060",
+      "GTX 1080", "GTX 1070",
+      "RX 9060", "RX 7600", "RX 6750", "RX 6700", "RX 6650", "RX 6600", "RX 5700",
+      "Arc B580", "Arc B570", "Arc A770", "Arc A750"
+    ],
+    "low": [
+      "RTX 3050", "GTX 1660", "GTX 1650", "GTX 1060", "GTX 1050",
+      "RX 6500", "RX 6400", "RX 5500", "RX 590", "RX 580", "RX 570",
+      "Arc A380", "Radeon(TM) Graphics", "Radeon Graphics", "UHD Graphics", "Iris Xe"
+    ]
+  }
+}

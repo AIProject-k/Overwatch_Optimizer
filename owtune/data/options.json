@@ -1,0 +1,115 @@
+{
+  "version": "2026.09",
+  "note": "evidence: seen = 이 PC의 파일에 게임이 직접 저장한 키(값 의미는 커뮤니티 근거), community = 커뮤니티 게시물로만 알려진 키. 둘 다 게임 UI와의 대응은 미검증.",
+  "display_modes": {
+    "key": "WindowMode",
+    "evidence": "seen",
+    "source": "Lutris 설치 스크립트(WindowMode=1 → 테두리 없는 창), 공개 설정 파일 예시",
+    "choices": [
+      {"id": "full", "label": "전체 화면", "values": {"WindowMode": "0"}},
+      {"id": "borderless", "label": "테두리 없는 창", "values": {"WindowMode": "1", "WindowedFullscreen": "1"}},
+      {"id": "window", "label": "창 모드", "values": {"WindowMode": "2", "WindowedFullscreen": "0"}}
+    ],
+    "absent_means": "full"
+  },
+  "options": [
+    {
+      "id": "preset", "tab": "gfx", "key": "GFXPresetLevel", "evidence": "seen",
+      "name": "그래픽 품질 프리셋",
+      "desc": "전체 화질의 기준 단계. 아래 개별 옵션이 이 위에 덮어써집니다.",
+      "choices": [["낮음", "1"], ["중간", "2"], ["높음", "3"], ["울트라", "4"], ["에픽", "5"]]
+    },
+    {
+      "id": "texture", "tab": "gfx", "key": "TextureDetail", "evidence": "community",
+      "name": "텍스처 품질",
+      "desc": "벽과 캐릭터 표면의 선명도. FPS 부담은 작고 VRAM을 씁니다.",
+      "choices": [["낮음", "1"], ["중간", "2"], ["높음", "3"], ["울트라", "4"]]
+    },
+    {
+      "id": "filter", "tab": "gfx", "key": "MaxAnisotropy", "evidence": "community",
+      "name": "텍스처 필터링",
+      "desc": "비스듬히 보이는 바닥과 벽의 선명도. 요즘 GPU에선 부담이 거의 없습니다.",
+      "choices": [["1x", "1"], ["2x", "2"], ["4x", "4"], ["8x", "8"], ["16x", "16"]]
+    },
+    {
+      "id": "shadow", "tab": "gfx", "key": "DirectionalShadowDetail", "evidence": "community",
+      "name": "그림자 상세",
+      "desc": "그림자의 해상도와 표시 거리. 비용이 큰 옵션입니다.",
+      "choices": [["끄기", "0"], ["낮음", "1"], ["중간", "2"], ["높음", "3"], ["울트라", "4"]]
+    },
+    {
+      "id": "effects", "tab": "gfx", "key": "EffectsQuality", "evidence": "community",
+      "name": "효과 상세",
+      "desc": "스킬과 폭발 이펙트 표현. 교전이 몰릴수록 부하가 커집니다.",
+      "choices": [["낮음", "1"], ["중간", "2"], ["높음", "3"], ["울트라", "4"]]
+    },
+    {
+      "id": "shader", "tab": "gfx", "key": "ShaderQuality", "evidence": "seen",
+      "name": "셰이더 품질",
+      "desc": "빛과 재질 계산의 정밀도.",
+      "choices": [["낮음", "1"], ["중간", "2"], ["높음", "3"]]
+    },
+    {
+      "id": "model", "tab": "gfx", "key": "ModelQuality", "evidence": "community", "advanced": true,
+      "name": "모델 상세",
+      "desc": "멀리 있는 캐릭터·사물의 형태 정밀도.",
+      "choices": [["낮음", "1"], ["중간", "2"], ["높음", "3"], ["울트라", "4"]]
+    },
+    {
+      "id": "physics", "tab": "gfx", "key": "PhysicsQuality", "evidence": "seen", "advanced": true,
+      "name": "물리 품질",
+      "desc": "파편·천 같은 물리 효과. CPU를 주로 씁니다.",
+      "choices": [["낮음", "1"], ["중간", "2"], ["높음", "3"]]
+    },
+    {
+      "id": "ao", "tab": "gfx", "key": "SSAOEnabled", "evidence": "community", "advanced": true,
+      "name": "앰비언트 오클루전",
+      "desc": "구석과 틈새의 음영. 입체감이 좋아지는 대신 비용이 있습니다.",
+      "choices": [["끄기", "0"], ["켜기", "1"]]
+    },
+    {
+      "id": "frame_mode", "tab": "frame", "key": "LimitToRefresh", "evidence": "community",
+      "name": "프레임 속도 방식",
+      "desc": "디스플레이 기반이면 FPS가 모니터 Hz에 묶입니다. 60Hz 화면이면 60 FPS에서 멈추는 대표 원인입니다.",
+      "choices": [["사용자 지정", "0"], ["디스플레이 기반", "1"]]
+    },
+    {
+      "id": "fps_cap", "tab": "frame", "key": "FrameRateCap", "evidence": "community",
+      "name": "FPS 상한",
+      "desc": "게임이 그리는 프레임의 최대치. 모니터 Hz와 같을 필요는 없습니다.",
+      "choices": [["60", "60"], ["100", "100"], ["120", "120"], ["144", "144"], ["165", "165"], ["240", "240"], ["300", "300"]],
+      "unit": " FPS", "free_int": [30, 600]
+    },
+    {
+      "id": "vsync", "tab": "frame", "key": "VerticalSyncEnabled", "evidence": "community", "manual": true,
+      "name": "수직 동기화",
+      "desc": "화면 찢어짐을 줄이는 대신 입력 지연이 늘 수 있습니다. 켜면 FPS가 모니터 Hz에 묶입니다.",
+      "choices": [["끄기", "0"], ["켜기", "1"]]
+    },
+    {
+      "id": "triple", "tab": "frame", "key": "TripleBufferingEnabled", "evidence": "community", "manual": true, "advanced": true,
+      "name": "트리플 버퍼링",
+      "desc": "수직 동기화를 켰을 때 FPS 급락을 줄여 주지만 지연이 조금 늡니다.",
+      "choices": [["끄기", "0"], ["켜기", "1"]]
+    }
+  ],
+  "profiles": {
+    "balance": {"preset": "3", "texture": "3", "filter": "16", "shadow": "2", "effects": "2", "shader": "3", "model": "3", "ao": "1"},
+    "quality": {"preset": "4", "texture": "4", "filter": "16", "shadow": "3", "effects": "3", "shader": "3", "model": "4", "physics": "3", "ao": "1"},
+    "perf":    {"preset": "2", "texture": "3", "filter": "8",  "shadow": "1", "effects": "1", "shader": "2", "model": "2", "physics": "1", "ao": "0"},
+    "quiet":   {"preset": "3", "texture": "3", "filter": "16", "shadow": "2", "effects": "2", "shader": "3", "model": "3", "ao": "1"}
+  },
+  "why": {
+    "preset":  {"d": "개별 옵션의 기준 단계", "quality": "화질 우선 · 목표 FPS 미달 가능성 있음"},
+    "texture": {"d": "FPS 부담이 작아 높게 유지 · VRAM 여유 확인"},
+    "filter":  {"d": "재질 선명도 우선 · 부담 거의 없음", "perf": "부담을 조금 더 덜어냄"},
+    "shadow":  {"d": "비용 큰 효과 · 중간부터 비교", "quality": "화질 우선 · 비용 큼", "perf": "비용 큰 효과를 낮춰 FPS 여유 확보"},
+    "effects": {"d": "교전 중 부하가 커지는 옵션 · 한 단계 조정", "perf": "교전 중 프레임 안정성 우선"},
+    "shader":  {"d": "재질 표현 유지", "perf": "부담을 조금 덜어냄"},
+    "model":   {"d": "형태 선명도 유지", "perf": "부담을 조금 덜어냄"},
+    "physics": {"d": "CPU 부담 조절", "quality": "파편 표현 유지", "perf": "CPU 부담을 덜어 프레임 안정성 확보"},
+    "ao":      {"d": "장면 입체감 유지", "perf": "효과 비용 절감"},
+    "frame_mode": {"d": "FPS 상한이 모니터 Hz에 묶이지 않게 함"},
+    "fps_cap": {"d": "목표 FPS에 맞춤", "quiet": "모니터 Hz 이하로 묶어 불필요한 GPU 부하 완화"}
+  }
+}

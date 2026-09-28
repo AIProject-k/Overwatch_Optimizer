@@ -1,0 +1,9 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+build/
+dist/
+*.owtune-tmp
+# 디자인 도구에서 내보낸 프로토타입 원본(저장소에는 포함하지 않음)
+*.zip
